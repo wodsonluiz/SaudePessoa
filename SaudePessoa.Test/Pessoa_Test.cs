@@ -2,13 +2,8 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    public class Tests
+    public class Pessoa_Test
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         public void Test1()
         {
