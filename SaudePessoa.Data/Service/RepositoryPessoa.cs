@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using Dapper;
+using MySql.Data.MySqlClient;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
+using System.Collections.Generic;
+using System.Data;
 
 namespace SaudePessoa.Data.Service
 {
@@ -13,7 +13,7 @@ namespace SaudePessoa.Data.Service
         {
             try
             {
-                using(SqlConnection conexao = new SqlConnection(_connection))
+                using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     var parametros = new DynamicParameters();
                     parametros.Add("Nome_Documento", Id, DbType.String);
@@ -32,7 +32,7 @@ namespace SaudePessoa.Data.Service
         {
             try
             {
-                using(SqlConnection conexao = new SqlConnection(_connection))
+                using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     return conexao.QueryFirstOrDefault<Pessoa>("Select * from Pessoa where Id = @Id" +
                         new { Id = id});
@@ -47,7 +47,7 @@ namespace SaudePessoa.Data.Service
         {
             try
             {
-                using (SqlConnection conexao = new SqlConnection(_connection))
+                using (MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     var parametros = new DynamicParameters();
                     parametros.Add("Nome_Documento", pessoa.Nome_Documento, DbType.String);
@@ -64,12 +64,13 @@ namespace SaudePessoa.Data.Service
                     parametros.Add("Cpf", pessoa.Cpf, DbType.String);
                     parametros.Add("Rg", pessoa.Rg, DbType.String);
 
+                    conexao.Open();
 
                     conexao.Execute("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
                          "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg)", parametros);
                 }
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 throw;
             }
@@ -78,7 +79,7 @@ namespace SaudePessoa.Data.Service
         {
             try
             {
-                using (SqlConnection conexao = new SqlConnection(_connection))
+                using (MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     var parametros = new DynamicParameters();
                     parametros.Add("Nome_Documento", pessoa.Nome_Documento, DbType.String);
@@ -101,7 +102,7 @@ namespace SaudePessoa.Data.Service
         {
            try
             {
-                using(SqlConnection conexao = new SqlConnection(_connection))
+                using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     return conexao.Query<Pessoa>("Select * from Pessoa");
                 }
