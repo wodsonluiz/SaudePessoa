@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaudePessoa.Api", "SaudePes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaudePessoa.Data", "SaudePessoa.Data\SaudePessoa.Data.csproj", "{A849F060-3504-4794-AE99-6BA9F2BC7D38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaudePessoa.Test", "SaudePessoa.Test\SaudePessoa.Test.csproj", "{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{A849F060-3504-4794-AE99-6BA9F2BC7D38}.Release|x64.Build.0 = Release|Any CPU
 		{A849F060-3504-4794-AE99-6BA9F2BC7D38}.Release|x86.ActiveCfg = Release|Any CPU
 		{A849F060-3504-4794-AE99-6BA9F2BC7D38}.Release|x86.Build.0 = Release|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Debug|x64.Build.0 = Debug|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Release|x64.ActiveCfg = Release|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Release|x64.Build.0 = Release|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC9D0631-5F39-462A-808E-DFBAC7F55ABF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
