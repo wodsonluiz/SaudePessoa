@@ -7,6 +7,11 @@ namespace SaudePessoa.Test
 {
     public class UsuarioTests
     {
+        public UsuarioTests()
+        {
+
+        }
+
         [Fact]
         public void TestGetUsuario()
         {

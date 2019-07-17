@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
+using SaudePessoa.Data.Service;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -9,27 +10,33 @@ namespace SaudePessoa.Test
 {
     public class PessoaTests
     {
-        protected readonly IRepositoryPessoa _IRepositoryPessoa;
-        private IConfiguration _config;
-
-        public PessoaTests(IRepositoryPessoa repositoryPessoa, IConfiguration config)
+        public PessoaTests()
         {
-            this._IRepositoryPessoa = repositoryPessoa;
-            this._config = config;
+                
         }
 
         [Fact]
-        public virtual void TestGetAll()
+        public void TestGetAll()
         {
-            //Criação cenario
-            var result = _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
-
-            if (result != null)
+            try
             {
-                IEnumerable<Pessoa> ListPessoas = result;
+                IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
 
-                Assert.True(ListPessoas.ToList().Count > 0, "Teste Wod");
+                //Criação cenario
+                var result = repositoryPessoa.GetAll("Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
+
+                if (result != null)
+                {
+                    IEnumerable<Pessoa> ListPessoas = result;
+
+                    Assert.True(ListPessoas.ToList().Count > 0, "Teste Wod");
+                }
             }
+            catch (System.Exception ex)
+            {
+                throw;
+            }
+            
         }
     }
 }
