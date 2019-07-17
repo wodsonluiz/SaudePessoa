@@ -14,5 +14,4 @@ C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Data\obj\Debug\netstanda
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.AssemblyInfo.cs
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.dll
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.pdb
-C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.csprojAssemblyReference.cache
 C:\Users\wodso\Desktop\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.csprojAssemblyReference.cache

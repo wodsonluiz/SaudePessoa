@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
 using System.Collections.Generic;
@@ -8,15 +9,20 @@ namespace SaudePessoa.Test
 {
     public class PessoaTests
     {
-        private IRepositoryPessoa _IRepositoryPessoa;
+        protected readonly IRepositoryPessoa _IRepositoryPessoa;
+        private IConfiguration _config;
 
-        public PessoaTests(IRepositoryPessoa repositoryPessoa) => _IRepositoryPessoa = repositoryPessoa;
+        public PessoaTests(IRepositoryPessoa repositoryPessoa, IConfiguration config)
+        {
+            this._IRepositoryPessoa = repositoryPessoa;
+            this._config = config;
+        }
 
         [Fact]
-        public void TestGetAll()
+        public virtual void TestGetAll()
         {
             //Criação cenario
-            var result = _IRepositoryPessoa.GetAll("Server=localhost;Port=3306;Database=db_desenvolvimento;Uid=root;Pwd=Pompom27;");
+            var result = _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
 
             if (result != null)
             {
