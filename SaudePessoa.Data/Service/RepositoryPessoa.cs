@@ -34,8 +34,11 @@ namespace SaudePessoa.Data.Service
             {
                 using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
-                    return conexao.QueryFirstOrDefault<Pessoa>("Select * from Pessoa where Id = @Id" +
-                        new { Id = id});
+                    var parametros = new DynamicParameters();
+
+                    parametros.Add("Id", id, DbType.Int32);
+
+                    return conexao.QueryFirstOrDefault<Pessoa>("Select * from Pessoa where Id = @Id", parametros);
                 }
             }
             catch (System.Exception)
