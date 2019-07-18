@@ -9,7 +9,7 @@ namespace SaudePessoa.Data.Interface
     {
         IEnumerable<Pessoa> GetAll(string _connection);
         Pessoa GetById(int id, string _connection);
-        void Insert(Pessoa pessoa, string _connection);
+        bool Insert(Pessoa pessoa, string _connection);
         bool Update(Pessoa pessoa, string _connection);
         bool Delete(int id, string _connection);
     }

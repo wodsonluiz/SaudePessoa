@@ -8,12 +8,12 @@ using SaudePessoa.Data.Service;
 
 namespace SaudePessoa.Api.Controllers
 {
-    [Route("/pessoa/api")]
+    [Route("api/pessoa")]
     [ApiController]
     public class PessoaController : ControllerBase
     {
         protected readonly IRepositoryPessoa _IRepositoryPessoa;
-        private IConfiguration _config; 
+        private IConfiguration _config;
 
         public PessoaController(IConfiguration config, IRepositoryPessoa repositoryPessoa)
         {
@@ -27,7 +27,7 @@ namespace SaudePessoa.Api.Controllers
         {
             return _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
         }
-        
+
         [HttpGet]
         [Route("GetById")]
         public Pessoa GetById(int Id)
@@ -39,21 +39,25 @@ namespace SaudePessoa.Api.Controllers
         [Route("Insert")]
         public ActionResult Insert([FromBody]Pessoa pessoa)
         {
-            _IRepositoryPessoa.Insert(pessoa, _config.GetConnectionString("ExemplosDapper"));
-            return StatusCode(200);
+            var result = _IRepositoryPessoa.Insert(pessoa, _config.GetConnectionString("ExemplosDapper"));
+
+            if (result)
+                return StatusCode(200);
+            else
+                return BadRequest();
         }
 
         [HttpDelete]
         [Route("Delete")]
         public bool Delete(int Id)
         {
-             return _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
+            return _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
         }
         [HttpPut]
         [Route("Update")]
         public bool Update([FromBody]Pessoa pessoa)
         {
-             return _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
+            return _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
         }
     }
 }

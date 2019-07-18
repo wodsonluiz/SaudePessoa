@@ -46,7 +46,7 @@ namespace SaudePessoa.Data.Service
                 return null;
             }
         }
-        public void Insert(Pessoa pessoa, string _connection)
+        public bool Insert(Pessoa pessoa, string _connection)
         {
             try
             {
@@ -71,11 +71,13 @@ namespace SaudePessoa.Data.Service
 
                     conexao.Execute("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
                          "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg)", parametros);
+
+                    return true;
                 }
             }
             catch (System.Exception ex)
             {
-                throw;
+                return false;
             }
         }
         public bool Update(Pessoa pessoa, string _connection)
