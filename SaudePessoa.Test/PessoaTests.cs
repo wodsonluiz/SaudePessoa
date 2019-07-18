@@ -12,7 +12,7 @@ namespace SaudePessoa.Test
     {
         public PessoaTests()
         {
-                
+
         }
 
         [Fact]
@@ -20,23 +20,41 @@ namespace SaudePessoa.Test
         {
             try
             {
-                IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
-
                 //Criação cenario
+                IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
                 var result = repositoryPessoa.GetAll("Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
 
+                //Efetuar Teste
                 if (result != null)
-                {
-                    IEnumerable<Pessoa> ListPessoas = result;
-
-                    Assert.True(ListPessoas.ToList().Count > 0, "Teste Wod");
-                }
+                    Assert.True(true, "GelAll Sucesso");
+                else
+                    Assert.False(false, "GelAll Falid");
             }
             catch (System.Exception ex)
             {
-                throw;
+                Assert.False(false, "GelAll" + ex.Message);
             }
-            
+        }
+
+        [Fact]
+        public void TesGetById()
+        {
+            try
+            {
+                //Criação cenario
+                IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
+                var result = repositoryPessoa.GetById(1, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
+
+                //Efetuar Teste
+                if (result != null)
+                    Assert.True(true, "GetById Sucesso");
+                else
+                    Assert.False(false, "GetById Falid");
+            }
+            catch (System.Exception ex)
+            {
+                Assert.False(false, "GetById" + ex.Message);
+            }
         }
     }
 }
