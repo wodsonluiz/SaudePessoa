@@ -32,8 +32,10 @@ namespace SaudePessoa.Api
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IRepositoryPessoa, RepositoryPessoa>();
+            services.AddSingleton<IRepositoryUsuario, RepositoryUsuario>();
 
             services.AddTransient<IRepositoryPessoa, RepositoryPessoa>();
+            services.AddTransient<IRepositoryUsuario, RepositoryUsuario>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

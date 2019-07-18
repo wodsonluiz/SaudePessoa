@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using SaudePessoa.Data.Entities;
+using System.Collections.Generic;
 
 namespace SaudePessoa.Data.Interface
 {
