@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 
 namespace SaudePessoa.Api.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/pessoa")]
     [ApiController]
     [Authorize(Policy = "UsuarioApi")]

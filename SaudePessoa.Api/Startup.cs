@@ -33,7 +33,6 @@ namespace SaudePessoa.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IRepositoryPessoa, RepositoryPessoa>();
             services.AddSingleton<IRepositoryUsuario, RepositoryUsuario>();
 
@@ -75,6 +74,13 @@ namespace SaudePessoa.Api
             {
                 options.AddPolicy("UsuarioApi", policy => policy.RequireClaim("UsuarioAPI"));
             });
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", X =>
+            {
+                X.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader();
+            }));
 
             #endregion
 
