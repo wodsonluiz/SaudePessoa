@@ -1,3 +1,5 @@
 # SaudePessoa
 
-Crud com Micro ORM Dapper C# + Testes unitários
+-Crud com Micro ORM Dapper C#
+-Testes unitários 
+-JWT
