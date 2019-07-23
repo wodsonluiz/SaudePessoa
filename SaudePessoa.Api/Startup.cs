@@ -53,7 +53,7 @@ namespace SaudePessoa.Api
 
                         ValidIssuer = "Securiry.Bearer",
                         ValidAudience = "Securiry.Bearer",
-                        IssuerSigningKey = ProviderJWT.JWTSecurityKey.Create("Secret_Key-Cestech")
+                        IssuerSigningKey = ProviderJWT.JWTSecurityKey.Create("Secret_Key-Application")
                     };
 
                     option.Events = new JwtBearerEvents
@@ -77,6 +77,8 @@ namespace SaudePessoa.Api
             });
 
             #endregion
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

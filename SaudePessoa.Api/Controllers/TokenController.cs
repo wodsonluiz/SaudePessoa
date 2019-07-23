@@ -33,12 +33,12 @@ namespace SaudePessoa.Api.Controllers
                 return Unauthorized();
 
             var token = new TokenJWTBuilder()
-                .AddSecurityKey(ProviderJWT.JWTSecurityKey.Create("Secret_Key-Cestech"))
+                .AddSecurityKey(ProviderJWT.JWTSecurityKey.Create("Secret_Key-Application"))
                 .AddSubject(usuario.email)
                 .AddIssuer("Securiry.Bearer")
                 .AddAudience("Securiry.Bearer")
-                .AddClaim("UsuarioAPI", usuario.Id.ToString())
-                .AddExpiry(5)
+                .AddClaim("UsuarioAPI", "1")
+                .AddExpiry(120)
                 .Builder();
 
             return Ok(token.value);
