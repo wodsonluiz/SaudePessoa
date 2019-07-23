@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
@@ -7,6 +8,7 @@ namespace SaudePessoa.Api.Controllers
 {
     [Route("api/usuario")]
     [ApiController]
+    [Authorize(Policy = "UsuarioApi")]
     public class UsuarioController : Controller
     {
         protected readonly IRepositoryUsuario _repositoryUsuario;

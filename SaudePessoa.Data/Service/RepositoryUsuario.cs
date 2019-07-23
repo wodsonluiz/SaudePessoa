@@ -62,7 +62,7 @@ namespace SaudePessoa.Data.Service
                 using (MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     var parametros = new DynamicParameters();
-                    parametros.Add("Email", email, DbType.Int32);
+                    parametros.Add("Email", email, DbType.String);
                     parametros.Add("Senha", password, DbType.String);
 
                     return conexao.QueryFirstOrDefault<Usuario>("Select * from Usuario where email = @Email and senha = @Senha", parametros);

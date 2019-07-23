@@ -1,15 +1,15 @@
-using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
-using SaudePessoa.Data.Service;
+using System.Collections.Generic;
 
 namespace SaudePessoa.Api.Controllers
 {
     [Route("api/pessoa")]
     [ApiController]
+    [Authorize(Policy = "UsuarioApi")]
     public class PessoaController : ControllerBase
     {
         protected readonly IRepositoryPessoa _IRepositoryPessoa;
