@@ -8,7 +8,6 @@ namespace SaudePessoa.Api.Controllers
 {
     [Route("api/usuario")]
     [ApiController]
-    [Authorize(Policy = "UsuarioApi")]
     public class UsuarioController : Controller
     {
         protected readonly IRepositoryUsuario _repositoryUsuario;
@@ -21,6 +20,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize("Bearer")]
         [Route("Logar")]
         public Usuario Logar([FromBody] string strEmail, string password)
         {
@@ -28,6 +28,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize("Bearer")]
         [Route("Inserir")]
         public bool Inserir([FromBody] Usuario usuario)
         {
@@ -35,6 +36,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize("Bearer")]
         [Route("Desativar")]
         public bool Desativar([FromBody] string email)
         {

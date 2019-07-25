@@ -11,7 +11,6 @@ namespace SaudePessoa.Api.Controllers
     [EnableCors("CorsPolicy")]
     [Route("api/pessoa")]
     [ApiController]
-    [Authorize(Policy = "UsuarioApi")]
     public class PessoaController : ControllerBase
     {
         protected readonly IRepositoryPessoa _IRepositoryPessoa;
@@ -24,6 +23,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize("Bearer")]
         [Route("GetAll")]
         public IEnumerable<Pessoa> GetAll()
         {
@@ -31,6 +31,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize("Bearer")]
         [Route("GetById")]
         public Pessoa GetById(int Id)
         {
@@ -38,6 +39,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize("Bearer")]
         [Route("Insert")]
         public ActionResult Insert([FromBody]Pessoa pessoa)
         {
@@ -50,12 +52,14 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpDelete]
+        [Authorize("Bearer")]
         [Route("Delete")]
         public bool Delete(int Id)
         {
             return _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
         }
         [HttpPut]
+        [Authorize("Bearer")]
         [Route("Update")]
         public bool Update([FromBody]Pessoa pessoa)
         {

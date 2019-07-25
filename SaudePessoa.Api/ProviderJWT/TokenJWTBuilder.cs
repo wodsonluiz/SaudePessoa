@@ -84,7 +84,7 @@ namespace SaudePessoa.Api.ProviderJWT
         private void EnsureArguments()
         {
             if (this.securityKey == null)
-                throw new ArgumentNullException("Security Key");
+                throw new ArgumentNullException("Secret_Key-Application");
 
             if (string.IsNullOrEmpty(this.subject))
                 throw new ArgumentNullException("Subject");

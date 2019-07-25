@@ -37,7 +37,7 @@ namespace SaudePessoa.Api.Controllers
                 .AddSubject(usuario.email)
                 .AddIssuer("Securiry.Bearer")
                 .AddAudience("Securiry.Bearer")
-                .AddClaim("UsuarioAPI", "1")
+                .AddClaim("Bearer", usuario.email)
                 .AddExpiry(120)
                 .Builder();
 

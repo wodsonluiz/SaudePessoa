@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -70,9 +71,11 @@ namespace SaudePessoa.Api
                     };
                 });
 
-            services.AddAuthorization(options =>
+            services.AddAuthorization(auth =>
             {
-                options.AddPolicy("UsuarioApi", policy => policy.RequireClaim("UsuarioAPI"));
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
             });
 
             services.AddCors(o => o.AddPolicy("CorsPolicy", X =>
