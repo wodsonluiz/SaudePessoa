@@ -41,7 +41,7 @@ namespace SaudePessoa.Api.Controllers
                 .AddExpiry(120)
                 .Builder();
 
-            return Ok(token.value);
+            return Ok(token);
         }
     }
 }
