@@ -20,6 +20,7 @@ C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\SaudePessoa.Api.runtimeconfig.dev.json
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\SaudePessoa.Api.dll
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\SaudePessoa.Api.pdb
+C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\SaudePessoa.Api.xml
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\SaudePessoa.Data.dll
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\SaudePessoa.Data.pdb
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.csprojAssemblyReference.cache
@@ -31,4 +32,5 @@ C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.RazorTargetAssemblyInfo.cache
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.csproj.CopyComplete
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.dll
+C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.xml
 C:\Users\wodson.correia\Desktop\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.pdb
