@@ -6778,11 +6778,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wodson.correia\\Desktop\\SaudePessoa\\SaudePessoa.Test\\SaudePessoa.Test.csproj",
+      "projectUniqueName": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Test\\SaudePessoa.Test.csproj",
       "projectName": "SaudePessoa.Test",
-      "projectPath": "C:\\Users\\wodson.correia\\Desktop\\SaudePessoa\\SaudePessoa.Test\\SaudePessoa.Test.csproj",
+      "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Test\\SaudePessoa.Test.csproj",
       "packagesPath": "C:\\Users\\wodson.correia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wodson.correia\\Desktop\\SaudePessoa\\SaudePessoa.Test\\obj\\",
+      "outputPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6803,8 +6803,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\wodson.correia\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
-              "projectPath": "C:\\Users\\wodson.correia\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+            "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
+              "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
             }
           }
         }

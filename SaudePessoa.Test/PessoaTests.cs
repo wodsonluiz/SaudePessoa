@@ -62,22 +62,8 @@ namespace SaudePessoa.Test
             {
                 //Criação cenario
                 IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
-                Pessoa pessoa = new Pessoa();
 
-                pessoa.Id = 0;
-                pessoa.Nome_Documento = "Pessoa_Teste_Unitario nome documento";
-                pessoa.Nome_Social = "Pessoa_Teste_Unitario nome social";
-                pessoa.Sexo = 1;
-                pessoa.Data_Nascimento = DateTime.Now;
-                pessoa.Situacao_Familiar = "";
-                pessoa.Cor_Pele = "";
-                pessoa.Etinia = "";
-                pessoa.Religiao = "";
-                pessoa.Nome_Mae = "";
-                pessoa.Nome_Pai = "";
-                pessoa.Nome_Conjugue = "";
-                pessoa.Cpf = "";
-                pessoa.Rg = "";
+                Pessoa pessoa = new Pessoa(0, "Pessoa_Teste_Unitario nome documento", "Pessoa_Teste_Unitario nome social", 1, DateTime.Now, "", "", "", "", "", "", "", "", "");
 
                 var result = repositoryPessoa.Insert(pessoa, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
 
