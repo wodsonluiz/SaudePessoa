@@ -115,16 +115,19 @@ namespace SaudePessoa.Api
 
             #endregion
 
+            // Enable compreession to response result
+            //services.AddResponseCompression();
+
             services.AddMvc();
         }
 
-        static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-        {
-            return HttpPolicyExtensions
-                    .HandleTransientHttpError()
-                    .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-                    .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
-        }
+        //static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        //{
+        //    return HttpPolicyExtensions
+        //            .HandleTransientHttpError()
+        //            .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+        //            .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
+        //}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -145,6 +148,8 @@ namespace SaudePessoa.Api
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
+            // Enable compreession to response result
+            //app.UseResponseCompression();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.

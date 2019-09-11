@@ -26,7 +26,7 @@ namespace SaudePessoa.Api.Controllers
         /// GetAll pessoas.
         /// </summary>
         [HttpGet]
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         [Route("GetAll")]
         public IEnumerable<Pessoa> GetAll()
         {
@@ -74,7 +74,7 @@ namespace SaudePessoa.Api.Controllers
         /// <response code="201">Returns the newly created item</response>
         /// <response code="400">If the item is null</response>   
         [HttpPost]
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         [Route("Insert")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -93,7 +93,7 @@ namespace SaudePessoa.Api.Controllers
         /// </summary>
         /// <param name="Id"></param>   
         [HttpDelete]
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         [Route("Delete")]
         public bool Delete(int Id)
         {
@@ -129,7 +129,7 @@ namespace SaudePessoa.Api.Controllers
         /// <response code="200">Returns the newly created item</response>
         /// <response code="400">If the item is null</response>  
         [HttpPut]
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         [Route("Update")]
         public bool Update([FromBody]Pessoa pessoa)
         {
