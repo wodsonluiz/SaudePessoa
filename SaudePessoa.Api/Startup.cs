@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Polly;
+using Polly.Extensions.Http;
 using SaudePessoa.Data.Interface;
 using SaudePessoa.Data.Service;
+using System;
+using System.IO;
+using System.Net.Http;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace SaudePessoa.Api
 {
@@ -67,8 +64,9 @@ namespace SaudePessoa.Api
             services.AddSingleton<IRepositoryPessoa, RepositoryPessoa>();
             services.AddSingleton<IRepositoryUsuario, RepositoryUsuario>();
 
-            services.AddTransient<IRepositoryPessoa, RepositoryPessoa>();
-            services.AddTransient<IRepositoryUsuario, RepositoryUsuario>();
+            //services.AddHttpClient<IRepositoryPessoa, RepositoryPessoa>()
+            //    .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Set lifetime to five minutes
+            //    .AddPolicyHandler(GetRetryPolicy());
 
             #region JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -118,6 +116,14 @@ namespace SaudePessoa.Api
             #endregion
 
             services.AddMvc();
+        }
+
+        static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
+            return HttpPolicyExtensions
+                    .HandleTransientHttpError()
+                    .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                    .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

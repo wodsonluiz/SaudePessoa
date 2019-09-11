@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {}
+    "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {
+    "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
+        "projectUniqueName": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
         "projectName": "SaudePessoa.Api",
-        "projectPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
-        "packagesPath": "C:\\Users\\wodso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\obj\\",
+        "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
+        "packagesPath": "C:\\Users\\wodson.correia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wodso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wodson.correia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,13 +25,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://10.0.8.181:8080/api/odata": {},
+          "http://nuget.novitech.net.br/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
-                "projectPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+              "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
+                "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
               }
             }
           }
@@ -57,9 +59,26 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            },
+            "Polly.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0-rc2, )"
             }
           },
           "imports": [
@@ -70,20 +89,20 @@
         }
       }
     },
-    "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
+    "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
+        "projectUniqueName": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
         "projectName": "SaudePessoa.Data",
-        "projectPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
-        "packagesPath": "C:\\Users\\wodso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\obj\\",
+        "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
+        "packagesPath": "C:\\Users\\wodson.correia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wodso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wodson.correia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,6 +110,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://10.0.8.181:8080/api/odata": {},
+          "http://nuget.novitech.net.br/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
