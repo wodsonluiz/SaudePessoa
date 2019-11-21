@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using HelloPackegerJekins.Interface;
+using HelloPackegerJekins.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -63,6 +65,7 @@ namespace SaudePessoa.Api
 
             services.AddSingleton<IRepositoryPessoa, RepositoryPessoa>();
             services.AddSingleton<IRepositoryUsuario, RepositoryUsuario>();
+            services.AddSingleton<IHelloWord, HelloWordService>();
 
             //services.AddHttpClient<IRepositoryPessoa, RepositoryPessoa>()
             //    .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Set lifetime to five minutes
@@ -116,7 +119,7 @@ namespace SaudePessoa.Api
             #endregion
 
             // Enable compreession to response result
-            //services.AddResponseCompression();
+            services.AddResponseCompression();
 
             services.AddMvc();
         }
@@ -149,7 +152,7 @@ namespace SaudePessoa.Api
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
             // Enable compreession to response result
-            //app.UseResponseCompression();
+            app.UseResponseCompression();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.

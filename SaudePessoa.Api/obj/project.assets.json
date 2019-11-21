@@ -4836,6 +4836,16 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "HelloPackegerJekins/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/HelloPackegerJekins.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HelloPackegerJekins.dll": {}
+        }
+      },
       "SaudePessoa.Data/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -13084,6 +13094,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "HelloPackegerJekins/1.0.0": {
+      "type": "project",
+      "path": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj",
+      "msbuildProject": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj"
+    },
     "SaudePessoa.Data/1.0.0": {
       "type": "project",
       "path": "../SaudePessoa.Data/SaudePessoa.Data.csproj",
@@ -13092,6 +13107,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "HelloPackegerJekins >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -13127,15 +13143,16 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://10.0.8.181:8080/api/odata": {},
-        "http://nuget.novitech.net.br/nuget": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://nugetsp.bemobi.com.br/nuget": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
             "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
               "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+            },
+            "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj": {
+              "projectPath": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj"
             }
           }
         }

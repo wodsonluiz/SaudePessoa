@@ -25,9 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://10.0.8.181:8080/api/odata": {},
-          "http://nuget.novitech.net.br/nuget": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://nugetsp.bemobi.com.br/nuget": {}
         },
         "frameworks": {
           "netstandard2.0": {

@@ -1,3 +1,4 @@
+using HelloPackegerJekins.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,13 @@ namespace SaudePessoa.Api.Controllers
     {
         protected readonly IRepositoryPessoa _IRepositoryPessoa;
         private IConfiguration _config;
+        private readonly IHelloWord helloWord;
 
-        public PessoaController(IConfiguration config, IRepositoryPessoa repositoryPessoa)
+        public PessoaController(IConfiguration config, IRepositoryPessoa repositoryPessoa, IHelloWord helloWord)
         {
             _config = config;
             _IRepositoryPessoa = repositoryPessoa;
+            this.helloWord = helloWord;
         }
 
         /// <summary>
