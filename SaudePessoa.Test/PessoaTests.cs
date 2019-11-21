@@ -56,7 +56,7 @@ namespace SaudePessoa.Test
         }
 
         [Fact]
-        public void TesteInsert()
+        public async void TesteInsert()
         {
             try
             {
@@ -65,7 +65,7 @@ namespace SaudePessoa.Test
 
                 Pessoa pessoa = new Pessoa(0, "Pessoa_Teste_Unitario nome documento", "Pessoa_Teste_Unitario nome social", 1, DateTime.Now, "", "", "", "", "", "", "", "", "");
 
-                var result = repositoryPessoa.Insert(pessoa, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
+                var result = await repositoryPessoa.Insert(pessoa, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
 
                 if (result)
                 {
@@ -82,7 +82,7 @@ namespace SaudePessoa.Test
         }
 
         [Fact]
-        public void TesteDelete()
+        public async void TesteDelete()
         {
             try
             {

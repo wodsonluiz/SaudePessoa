@@ -4,12 +4,13 @@ using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace SaudePessoa.Data.Service
 {
     public class RepositoryPessoa : IRepositoryPessoa
     {
-        public bool Delete(int Id, string _connection)
+        public async Task<bool> Delete(int Id, string _connection)
         {
             try
             {
@@ -28,7 +29,7 @@ namespace SaudePessoa.Data.Service
                 return false;
             }
         }
-        public Pessoa GetById(int id, string _connection)
+        public async Task<Pessoa> GetById(int id, string _connection)
         {
             try
             {
@@ -38,7 +39,7 @@ namespace SaudePessoa.Data.Service
 
                     parametros.Add("Id", id, DbType.Int32);
 
-                    return conexao.QueryFirstOrDefault<Pessoa>("Select * from Pessoa where Id = @Id", parametros);
+                    return await conexao.QueryFirstOrDefaultAsync<Pessoa>("Select * from Pessoa where Id = @Id", parametros);
                 }
             }
             catch (System.Exception)
@@ -46,7 +47,7 @@ namespace SaudePessoa.Data.Service
                 return null;
             }
         }
-        public bool Insert(Pessoa pessoa, string _connection)
+        public async Task<bool> Insert(Pessoa pessoa, string _connection)
         {
             try
             {
@@ -69,7 +70,7 @@ namespace SaudePessoa.Data.Service
 
                     conexao.Open();
 
-                    conexao.Execute("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
+                    await conexao.ExecuteAsync("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
                          "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg)", parametros);
 
                     return true;
@@ -80,7 +81,7 @@ namespace SaudePessoa.Data.Service
                 return false;
             }
         }
-        public bool Update(Pessoa pessoa, string _connection)
+        public async Task<bool> Update(Pessoa pessoa, string _connection)
         {
             try
             {
@@ -94,7 +95,7 @@ namespace SaudePessoa.Data.Service
                     parametros.Add("Rg", pessoa.Sexo, DbType.String);
                     parametros.Add("Id", pessoa.Sexo, DbType.Int32);
                    
-                    conexao.Execute("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", parametros);
+                    await conexao.ExecuteAsync("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", parametros);
                 };
             }
             catch (System.Exception)
@@ -103,13 +104,13 @@ namespace SaudePessoa.Data.Service
             }
              return true;
         }
-        IEnumerable<Pessoa> IRepositoryPessoa.GetAll(string _connection)
+        async Task<IEnumerable<Pessoa>> IRepositoryPessoa.GetAll(string _connection)
         {
            try
             {
                 using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
-                    return conexao.Query<Pessoa>("Select * from Pessoa");
+                    return await conexao.QueryAsync<Pessoa>("Select * from Pessoa");
                 }
             }
             catch (System.Exception)

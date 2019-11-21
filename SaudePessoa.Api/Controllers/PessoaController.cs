@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SaudePessoa.Api.Controllers
 {
@@ -31,9 +32,10 @@ namespace SaudePessoa.Api.Controllers
         [HttpGet]
         [Authorize("Bearer")]
         [Route("GetAll")]
-        public IEnumerable<Pessoa> GetAll()
+        public async Task<IEnumerable<Pessoa>> GetAll()
         {
-            return _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
+            string val = helloWord.ToStringWod("sou pica");
+            return await _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
         }
 
         /// <summary>
@@ -43,9 +45,9 @@ namespace SaudePessoa.Api.Controllers
         [HttpGet]
         //[Authorize("Bearer")]
         [Route("GetById")]
-        public Pessoa GetById(int Id)
+        public async Task<Pessoa> GetById(int Id)
         {
-            return _IRepositoryPessoa.GetById(Id, _config.GetConnectionString("ExemplosDapper"));
+            return await _IRepositoryPessoa.GetById(Id, _config.GetConnectionString("ExemplosDapper"));
         }
 
         /// <summary>
@@ -81,9 +83,9 @@ namespace SaudePessoa.Api.Controllers
         [Route("Insert")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public ActionResult Insert([FromBody]Pessoa pessoa)
+        public async Task<ActionResult> Insert([FromBody]Pessoa pessoa)
         {
-            var result = _IRepositoryPessoa.Insert(pessoa, _config.GetConnectionString("ExemplosDapper"));
+            var result = await _IRepositoryPessoa.Insert(pessoa, _config.GetConnectionString("ExemplosDapper"));
 
             if (result)
                 return StatusCode(201);
@@ -98,9 +100,9 @@ namespace SaudePessoa.Api.Controllers
         [HttpDelete]
         [Authorize("Bearer")]
         [Route("Delete")]
-        public bool Delete(int Id)
+        public async Task<bool> Delete(int Id)
         {
-            return _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
+            return await _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
         }
 
         /// <summary>
@@ -134,9 +136,9 @@ namespace SaudePessoa.Api.Controllers
         [HttpPut]
         [Authorize("Bearer")]
         [Route("Update")]
-        public bool Update([FromBody]Pessoa pessoa)
+        public async Task<bool> Update([FromBody]Pessoa pessoa)
         {
-            return _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
+            return await _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
         }
     }
 }
