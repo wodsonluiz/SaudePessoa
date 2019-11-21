@@ -79,10 +79,6 @@ namespace SaudePessoa.Api
             services.AddSingleton<IRepositoryUsuario, RepositoryUsuario>();
             services.AddSingleton<IHelloWord, HelloWordService>();
 
-            //services.AddHttpClient<IRepositoryPessoa, RepositoryPessoa>()
-            //    .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Set lifetime to five minutes
-            //    .AddPolicyHandler(GetRetryPolicy());
-
             #region JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>

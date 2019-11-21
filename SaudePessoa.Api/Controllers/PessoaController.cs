@@ -34,7 +34,7 @@ namespace SaudePessoa.Api.Controllers
         [Route("GetAll")]
         public async Task<IEnumerable<Pessoa>> GetAll()
         {
-            string val = helloWord.ToStringWod("sou pica");
+            string val = helloWord.ToStringWod("King of North");
             return await _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
         }
 

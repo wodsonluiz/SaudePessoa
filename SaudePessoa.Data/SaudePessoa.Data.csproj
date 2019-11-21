@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,6 +11,7 @@
     <PackageReference Include="Dapper.FluentMap.Dommel" Version="2.0.0-beta1" />
     <PackageReference Include="Dommel" Version="2.0.0-beta4" />
     <PackageReference Include="MySql.Data" Version="8.0.16" />
+    <PackageReference Include="Polly" Version="7.1.1" />
    
   </ItemGroup>
 

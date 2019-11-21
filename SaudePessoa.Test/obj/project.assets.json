@@ -721,6 +721,15 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Polly/7.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Polly.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {}
+        }
+      },
       "runtime.native.System/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -1955,7 +1964,8 @@
           "Dapper.FluentMap": "2.0.0-beta1",
           "Dapper.FluentMap.Dommel": "2.0.0-beta1",
           "Dommel": "2.0.0-beta4",
-          "MySql.Data": "8.0.16"
+          "MySql.Data": "8.0.16",
+          "Polly": "7.1.1"
         },
         "compile": {
           "bin/placeholder/SaudePessoa.Data.dll": {}
@@ -3043,6 +3053,21 @@
         "newtonsoft.json.9.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "Polly/7.1.1": {
+      "sha512": "okRGHVvn0bGCeMBgaCZShlSez8rxjgthyDf/NRTYsSh5kb8IbKnX7W15d3s95Kq9uzwj7tFYiXNrCvn6d0XoeA==",
+      "type": "package",
+      "path": "polly/7.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/Polly.dll",
+        "lib/netstandard1.1/Polly.xml",
+        "lib/netstandard2.0/Polly.dll",
+        "lib/netstandard2.0/Polly.xml",
+        "polly.7.1.1.nupkg.sha512",
+        "polly.nuspec"
       ]
     },
     "runtime.native.System/4.0.0": {

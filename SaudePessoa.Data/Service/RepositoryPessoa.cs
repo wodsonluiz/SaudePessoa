@@ -1,7 +1,9 @@
 using Dapper;
 using MySql.Data.MySqlClient;
+using Polly;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
@@ -19,12 +21,14 @@ namespace SaudePessoa.Data.Service
                     var parametros = new DynamicParameters();
                     parametros.Add("Nome_Documento", Id, DbType.String);
 
-                    conexao.Execute("Delete Pessoa where Id = @Id", parametros);
+                    await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Delete Pessoa where Id = @Id", parametros));
                 }
 
                 return true;
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -39,7 +43,9 @@ namespace SaudePessoa.Data.Service
 
                     parametros.Add("Id", id, DbType.Int32);
 
-                    return await conexao.QueryFirstOrDefaultAsync<Pessoa>("Select * from Pessoa where Id = @Id", parametros);
+                    return await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.QueryFirstOrDefaultAsync<Pessoa>("Select * from Pessoa where Id = @Id", parametros));
                 }
             }
             catch (System.Exception)
@@ -70,8 +76,10 @@ namespace SaudePessoa.Data.Service
 
                     conexao.Open();
 
-                    await conexao.ExecuteAsync("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
-                         "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg)", parametros);
+                    await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
+                         "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg)", parametros));
 
                     return true;
                 }
@@ -95,7 +103,9 @@ namespace SaudePessoa.Data.Service
                     parametros.Add("Rg", pessoa.Sexo, DbType.String);
                     parametros.Add("Id", pessoa.Sexo, DbType.Int32);
                    
-                    await conexao.ExecuteAsync("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", parametros);
+                    await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", parametros));
                 };
             }
             catch (System.Exception)
@@ -110,7 +120,9 @@ namespace SaudePessoa.Data.Service
             {
                 using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
-                    return await conexao.QueryAsync<Pessoa>("Select * from Pessoa");
+                    return await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.QueryAsync<Pessoa>("Select * from Pessoa"));
                 }
             }
             catch (System.Exception)

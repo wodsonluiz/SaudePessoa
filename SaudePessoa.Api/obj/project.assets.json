@@ -4855,7 +4855,8 @@
           "Dapper.FluentMap": "2.0.0-beta1",
           "Dapper.FluentMap.Dommel": "2.0.0-beta1",
           "Dommel": "2.0.0-beta4",
-          "MySql.Data": "8.0.16"
+          "MySql.Data": "8.0.16",
+          "Polly": "7.1.1"
         },
         "compile": {
           "bin/placeholder/SaudePessoa.Data.dll": {}
