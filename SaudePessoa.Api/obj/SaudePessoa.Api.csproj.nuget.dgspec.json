@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {}
+    "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {
+    "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
+        "projectUniqueName": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
         "projectName": "SaudePessoa.Api",
-        "projectPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
-        "packagesPath": "C:\\Users\\wodso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Api\\obj\\",
+        "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\SaudePessoa.Api.csproj",
+        "packagesPath": "C:\\Users\\wodson.correia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wodso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wodson.correia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,13 +25,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://nugetsp.bemobi.com.br/nuget": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
-                "projectPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+              "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
+                "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+              },
+              "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj": {
+                "projectPath": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj"
               }
             }
           }
@@ -57,9 +60,26 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            },
+            "Polly.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0-rc2, )"
             }
           },
           "imports": [
@@ -70,20 +90,20 @@
         }
       }
     },
-    "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
+    "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
+        "projectUniqueName": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
         "projectName": "SaudePessoa.Data",
-        "projectPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
-        "packagesPath": "C:\\Users\\wodso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wodso\\Desktop\\SaudePessoa\\SaudePessoa.Data\\obj\\",
+        "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj",
+        "packagesPath": "C:\\Users\\wodson.correia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wodso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wodson.correia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,7 +111,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://nugetsp.bemobi.com.br/nuget": {}
         },
         "frameworks": {
           "netstandard2.0": {
@@ -131,6 +151,58 @@
               "target": "Package",
               "version": "[8.0.16, )"
             },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj",
+        "projectName": "HelloPackegerJekins",
+        "projectPath": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\HelloPackegerJekins.csproj",
+        "packagesPath": "C:\\Users\\wodson.correia\\.nuget\\packages\\",
+        "outputPath": "D:\\Font\\HelloPackegerJekins\\HelloPackegerJekins\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\wodson.correia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://nugetsp.bemobi.com.br/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
