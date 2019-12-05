@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SaudePessoa.Api.ProviderJWT;
@@ -22,12 +23,12 @@ namespace SaudePessoa.Api.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Produces("application/json")]
-        public IActionResult CreateToken([FromBody]UsuarioToken usuarioToken )
+        public async Task<IActionResult> CreateToken([FromBody]UsuarioToken usuarioToken )
         {
             if (string.IsNullOrEmpty(usuarioToken.strEmail) || string.IsNullOrEmpty(usuarioToken.strPassword))
                 return Unauthorized();
 
-            var usuario = _serviceUsuario.Logar(usuarioToken.strEmail, usuarioToken.strPassword, _config.GetConnectionString("ExemplosDapper"));
+            var usuario = await _serviceUsuario.Logar(usuarioToken.strEmail, usuarioToken.strPassword, _config.GetConnectionString("ExemplosDapper"));
 
             if (usuario == null)
                 return Unauthorized();

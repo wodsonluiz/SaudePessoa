@@ -1,15 +1,17 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
+using Polly;
 using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace SaudePessoa.Data.Service
 {
     public class RepositoryUsuario : IRepositoryUsuario
     {
-        public bool Desativar(string email, string _connection)
+        public async Task<bool> Desativar(string email, string _connection)
         {
             try
             {
@@ -18,18 +20,20 @@ namespace SaudePessoa.Data.Service
                     var parametros = new DynamicParameters();
                     parametros.Add("Email", email, DbType.String);
 
-                    conexao.Execute("update Usuario set status = 2 where Email = @Email", parametros);
+                    await Policy.Handle<Exception>()
+                    .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
+                    .ExecuteAsync(async () => await conexao.ExecuteAsync("update Usuario set status = 2 where Email = @Email", parametros));
                 }
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
         }
 
-        public bool Insert(Usuario usuario, string _connection)
+        public async Task<bool> Insert(Usuario usuario, string _connection)
         {
             try
             {
@@ -43,19 +47,21 @@ namespace SaudePessoa.Data.Service
 
                     conexao.Open();
 
-                    conexao.Execute("Insert into Usuario(Id_Pessoa, Email, Senha, Status)" +
-                         "values(@Id_Pessoa, @Email, @Senha, @Status)", parametros);
+                    await Policy.Handle<Exception>()
+                    .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
+                    .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Usuario(Id_Pessoa, Email, Senha, Status)" +
+                         "values(@Id_Pessoa, @Email, @Senha, @Status)", parametros));
 
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
         }
 
-        public Usuario Logar(string email, string password, string _connection)
+        public async Task<Usuario> Logar(string email, string password, string _connection)
         {
             try
             {
@@ -65,10 +71,13 @@ namespace SaudePessoa.Data.Service
                     parametros.Add("Email", email, DbType.String);
                     parametros.Add("Senha", password, DbType.String);
 
-                    return conexao.QueryFirstOrDefault<Usuario>("Select * from Usuario where email = @Email and senha = @Senha", parametros);
+                    return await Policy.Handle<Exception>()
+                    .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
+                    .ExecuteAsync(async () => await conexao.QueryFirstOrDefaultAsync<Usuario>("Select * from Usuario where email = @Email and senha = @Senha", 
+                    parametros));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

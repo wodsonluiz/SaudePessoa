@@ -43,7 +43,7 @@ namespace SaudePessoa.Api.Controllers
         /// </summary>
         /// <param name="Id"></param>    
         [HttpGet]
-        //[Authorize("Bearer")]
+        [Authorize("Bearer")]
         [Route("GetById")]
         public async Task<Pessoa> GetById(int Id)
         {

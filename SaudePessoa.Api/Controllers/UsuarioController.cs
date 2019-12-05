@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SaudePessoa.Data.Entities;
@@ -22,25 +23,25 @@ namespace SaudePessoa.Api.Controllers
         [HttpPost]
         [Authorize("Bearer")]
         [Route("Logar")]
-        public Usuario Logar([FromBody] string strEmail, string password)
+        public async Task<Usuario> Logar([FromBody] string strEmail, string password)
         {
-            return _repositoryUsuario.Logar(strEmail, password, _config.GetConnectionString("ExemplosDapper"));
+            return await _repositoryUsuario.Logar(strEmail, password, _config.GetConnectionString("ExemplosDapper"));
         }
 
         [HttpPost]
         [Authorize("Bearer")]
         [Route("Inserir")]
-        public bool Inserir([FromBody] Usuario usuario)
+        public async Task<bool> Inserir([FromBody] Usuario usuario)
         {
-            return _repositoryUsuario.Insert(usuario, _config.GetConnectionString("ExemplosDapper"));
+            return await _repositoryUsuario.Insert(usuario, _config.GetConnectionString("ExemplosDapper"));
         }
 
         [HttpPost]
         [Authorize("Bearer")]
         [Route("Desativar")]
-        public bool Desativar([FromBody] string email)
+        public async Task<bool> Desativar([FromBody] string email)
         {
-            return _repositoryUsuario.Desativar(email, _config.GetConnectionString("ExemplosDapper"));
+            return await _repositoryUsuario.Desativar(email, _config.GetConnectionString("ExemplosDapper"));
         }
     }
 }

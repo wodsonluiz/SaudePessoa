@@ -48,7 +48,7 @@ namespace SaudePessoa.Data.Service
                         .ExecuteAsync(async () => await conexao.QueryFirstOrDefaultAsync<Pessoa>("Select * from Pessoa where Id = @Id", parametros));
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return null;
             }
@@ -84,7 +84,7 @@ namespace SaudePessoa.Data.Service
                     return true;
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -105,10 +105,11 @@ namespace SaudePessoa.Data.Service
                    
                     await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
-                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", parametros));
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", 
+                        parametros));
                 };
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -125,7 +126,7 @@ namespace SaudePessoa.Data.Service
                         .ExecuteAsync(async () => await conexao.QueryAsync<Pessoa>("Select * from Pessoa"));
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return null;
             }

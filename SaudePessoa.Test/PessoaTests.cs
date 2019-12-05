@@ -14,13 +14,13 @@ namespace SaudePessoa.Test
         }
 
         [Fact]
-        public void TestGetAll()
+        public async void TestGetAll()
         {
             try
             {
-                //Criação cenario
+                //CriaÃ§ao cenario
                 IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
-                var result = repositoryPessoa.GetAll("Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
+                var result = await repositoryPessoa.GetAll("Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
 
                 //Efetuar Teste
                 if (result != null)
@@ -35,13 +35,13 @@ namespace SaudePessoa.Test
         }
 
         [Fact]
-        public void TesGetById()
+        public async void TesGetById()
         {
             try
             {
-                //Criação cenario
+                //Criaï¿½ï¿½o cenario
                 IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
-                var result = repositoryPessoa.GetById(1, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
+                var result = await repositoryPessoa.GetById(1, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
 
                 //Efetuar Teste
                 if (result != null)
@@ -60,7 +60,7 @@ namespace SaudePessoa.Test
         {
             try
             {
-                //Criação cenario
+                //Criaï¿½ï¿½o cenario
                 IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
 
                 Pessoa pessoa = new Pessoa(0, "Pessoa_Teste_Unitario nome documento", "Pessoa_Teste_Unitario nome social", 1, DateTime.Now, "", "", "", "", "", "", "", "", "");
@@ -81,21 +81,5 @@ namespace SaudePessoa.Test
             }
         }
 
-        [Fact]
-        public async void TesteDelete()
-        {
-            try
-            {
-                //Criação cenario
-                IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
-
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
     }
 }

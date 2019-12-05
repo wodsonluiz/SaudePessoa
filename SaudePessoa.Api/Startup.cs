@@ -9,14 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Polly;
-using Polly.Extensions.Http;
 using SaudePessoa.Data.Interface;
 using SaudePessoa.Data.Service;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -43,7 +39,7 @@ namespace SaudePessoa.Api
                     Version = "v1",
                     Title = "API Wod",
                     Description = "A simple example ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://github.com/wodsonluiz/SaudePessoa"),
+                    TermsOfService = new Uri("https://github.com/wodsonluiz/WodLero"),
                     
                     Contact = new OpenApiContact
                     {
@@ -132,14 +128,6 @@ namespace SaudePessoa.Api
             services.AddMvc();
         }
 
-        //static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-        //{
-        //    return HttpPolicyExtensions
-        //            .HandleTransientHttpError()
-        //            .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-        //            .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
-        //}
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -162,7 +150,6 @@ namespace SaudePessoa.Api
             // Enable compreession to response result
             app.UseResponseCompression();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
