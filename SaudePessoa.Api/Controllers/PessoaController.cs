@@ -100,9 +100,16 @@ namespace SaudePessoa.Api.Controllers
         [HttpDelete]
         [Authorize("Bearer")]
         [Route("Delete")]
-        public async Task<bool> Delete(int Id)
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult> Delete(int Id)
         {
-            return await _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
+            var result = await _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
+
+            if (result)
+                return StatusCode(204);
+            else
+                return BadRequest();
         }
 
         /// <summary>
@@ -136,9 +143,14 @@ namespace SaudePessoa.Api.Controllers
         [HttpPut]
         [Authorize("Bearer")]
         [Route("Update")]
-        public async Task<bool> Update([FromBody]Pessoa pessoa)
+        public async Task<ActionResult> Update([FromBody]Pessoa pessoa)
         {
-            return await _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
+            var result = await _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
+
+            if (result)
+                return StatusCode(202);
+            else
+                return BadRequest();
         }
     }
 }

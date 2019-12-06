@@ -5,6 +5,9 @@ using SaudePessoa.Data.Entities;
 using SaudePessoa.Data.Interface;
 using System;
 using System.Data;
+using System.Globalization;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SaudePessoa.Data.Service
@@ -23,9 +26,10 @@ namespace SaudePessoa.Data.Service
                     await Policy.Handle<Exception>()
                     .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
                     .ExecuteAsync(async () => await conexao.ExecuteAsync("update Usuario set status = 2 where Email = @Email", parametros));
-                }
 
-                return true;
+                    GC.SuppressFinalize(this);
+                    return true;
+                }
             }
             catch (Exception)
             {
@@ -39,23 +43,39 @@ namespace SaudePessoa.Data.Service
             {
                 using (MySqlConnection conexao = new MySqlConnection(_connection))
                 {
-                    var parametros = new DynamicParameters();
-                    parametros.Add("Id_Pessoa", usuario.Id_Pessoa, DbType.Int32);
-                    parametros.Add("Email", usuario.email, DbType.String);
-                    parametros.Add("Senha", usuario.senha, DbType.String);
-                    parametros.Add("Status", usuario.status, DbType.Int32);
+                    UnicodeEncoding encoding = new UnicodeEncoding();
+                    byte[] hashBytes;
 
-                    conexao.Open();
+                    using (HashAlgorithm has = SHA1.Create())
+                    {
+                        hashBytes = has.ComputeHash(encoding.GetBytes(usuario.senha));
 
-                    await Policy.Handle<Exception>()
-                    .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
-                    .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Usuario(Id_Pessoa, Email, Senha, Status)" +
-                         "values(@Id_Pessoa, @Email, @Senha, @Status)", parametros));
+                        StringBuilder hashValueSenha = new StringBuilder(hashBytes.Length * 2);
 
-                    return true;
+                        foreach (byte b in hashBytes)
+                        {
+                            hashValueSenha.AppendFormat(CultureInfo.InvariantCulture, "{0:X2}", b);
+                        }
+
+                        var parametros = new DynamicParameters();
+                        parametros.Add("Id_Pessoa", usuario.Id_Pessoa, DbType.Int32);
+                        parametros.Add("Email", usuario.email, DbType.String);
+                        parametros.Add("Senha", hashValueSenha.ToString(), DbType.String);
+                        parametros.Add("Status", usuario.status, DbType.Int32);
+
+                        conexao.Open();
+
+                        await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Usuario(Id_Pessoa, Email, Senha, Status)" +
+                            "values(@Id_Pessoa, @Email, @Senha, @Status)", parametros));
+
+                        GC.SuppressFinalize(this);
+                        return true;
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -67,14 +87,31 @@ namespace SaudePessoa.Data.Service
             {
                 using (MySqlConnection conexao = new MySqlConnection(_connection))
                 {
-                    var parametros = new DynamicParameters();
-                    parametros.Add("Email", email, DbType.String);
-                    parametros.Add("Senha", password, DbType.String);
+                    UnicodeEncoding encoding = new UnicodeEncoding();
+                    byte[] hashBytes;
 
-                    return await Policy.Handle<Exception>()
-                    .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
-                    .ExecuteAsync(async () => await conexao.QueryFirstOrDefaultAsync<Usuario>("Select * from Usuario where email = @Email and senha = @Senha", 
-                    parametros));
+                    using (HashAlgorithm has = SHA1.Create())
+                    {
+                        hashBytes = has.ComputeHash(encoding.GetBytes(password));
+
+                        StringBuilder hashValueSenha = new StringBuilder(hashBytes.Length * 2);
+
+                        foreach (byte b in hashBytes)
+                        {
+                            hashValueSenha.AppendFormat(CultureInfo.InvariantCulture, "{0:X2}", b);
+                        }
+
+                        var parametros = new DynamicParameters();
+                        parametros.Add("Email", email, DbType.String);
+                        parametros.Add("Senha", hashValueSenha.ToString(), DbType.String);
+
+                        GC.SuppressFinalize(this);
+
+                        return await Policy.Handle<Exception>()
+                        .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
+                        .ExecuteAsync(async () => await conexao.QueryFirstOrDefaultAsync<Usuario>("Select * from Usuario where email = @Email and senha = @Senha",
+                        parametros));
+                    }
                 }
             }
             catch (Exception)
