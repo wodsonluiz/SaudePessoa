@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SaudePessoa.Data\SaudePessoa.Data.csproj" />
-    <ProjectReference Include="D:\Font\HelloPackegerJekins\HelloPackegerJekins\HelloPackegerJekins.csproj" />
   </ItemGroup>
 
 

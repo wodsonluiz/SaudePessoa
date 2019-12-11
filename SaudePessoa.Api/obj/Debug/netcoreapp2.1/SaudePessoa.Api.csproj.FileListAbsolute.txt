@@ -53,5 +53,3 @@ C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcorea
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.dll
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.xml
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.pdb
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\HelloPackegerJekins.dll
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\HelloPackegerJekins.pdb
