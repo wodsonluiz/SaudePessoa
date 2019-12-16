@@ -37,7 +37,10 @@
 =======
               "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
                 "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+<<<<<<< HEAD
 >>>>>>> ea753870739c94ca6d70e467218e3dfba2ef3347
+=======
+>>>>>>> master
               }
             }
           }
@@ -173,6 +176,7 @@
             }
           },
           "imports": [
+<<<<<<< HEAD
             "net461",
             "net462",
             "net47",
@@ -187,6 +191,12 @@
 =======
           "warn": true
 >>>>>>> ea753870739c94ca6d70e467218e3dfba2ef3347
+=======
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+>>>>>>> master
         }
       }
     }
