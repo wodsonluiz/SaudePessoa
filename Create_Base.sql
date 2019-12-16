@@ -24,4 +24,14 @@ email varchar(50),
 senha varchar(10),
 PRIMARY KEY (Id));
 
+Create table Frase(
+Id int not NULL AUTO_INCREMENT,
+Id_Pessoa int references Pessoa(id),
+Descricao varchar(50),
+Estado int,
+AutorFrase varchar(255),
+DataRegistro datetime,
+RankLevel DOUBLE(40,2),
+ExtraField varchar(1000),
+PRIMARY KEY (Id));
 

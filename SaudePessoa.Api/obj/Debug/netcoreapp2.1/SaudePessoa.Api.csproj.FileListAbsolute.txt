@@ -53,6 +53,7 @@ C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcorea
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.dll
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.xml
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.pdb
+<<<<<<< HEAD
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\HelloPackegerJekins.dll
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Api\bin\Debug\netcoreapp2.1\HelloPackegerJekins.pdb
 C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.csprojAssemblyReference.cache
@@ -76,3 +77,5 @@ C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Api\obj\Debug\n
 C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.dll
 C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.xml
 C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Api\obj\Debug\netcoreapp2.1\SaudePessoa.Api.pdb
+=======
+>>>>>>> ea753870739c94ca6d70e467218e3dfba2ef3347

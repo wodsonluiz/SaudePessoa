@@ -13134,8 +13134,13 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\wodso\\OneDrive\\Documentos\\fonts\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
               "projectPath": "C:\\Users\\wodso\\OneDrive\\Documentos\\fonts\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+=======
+            "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj": {
+              "projectPath": "C:\\Users\\wodson.correia\\Documents\\SaudePessoa\\SaudePessoa.Data\\SaudePessoa.Data.csproj"
+>>>>>>> ea753870739c94ca6d70e467218e3dfba2ef3347
             }
           }
         }

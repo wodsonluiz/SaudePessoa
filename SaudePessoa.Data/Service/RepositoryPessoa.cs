@@ -19,7 +19,7 @@ namespace SaudePessoa.Data.Service
                 using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
                     var parametros = new DynamicParameters();
-                    parametros.Add("Nome_Documento", Id, DbType.String);
+                    parametros.Add("Id", Id, DbType.String);
 
                     await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
