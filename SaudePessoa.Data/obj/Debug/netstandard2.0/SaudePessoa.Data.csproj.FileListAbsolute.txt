@@ -23,3 +23,10 @@ C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Debug\netstan
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.AssemblyInfo.cs
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.dll
 C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.pdb
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\bin\Debug\netstandard2.0\SaudePessoa.Data.deps.json
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\bin\Debug\netstandard2.0\SaudePessoa.Data.dll
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\bin\Debug\netstandard2.0\SaudePessoa.Data.pdb
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.AssemblyInfoInputs.cache
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.AssemblyInfo.cs
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.dll
+C:\Users\wodso\OneDrive\Documentos\fonts\SaudePessoa\SaudePessoa.Data\obj\Debug\netstandard2.0\SaudePessoa.Data.pdb

@@ -62,13 +62,14 @@ namespace SaudePessoa.Data.Service
                         parametros.Add("Email", usuario.email, DbType.String);
                         parametros.Add("Senha", hashValueSenha.ToString(), DbType.String);
                         parametros.Add("Status", usuario.status, DbType.Int32);
+                        parametros.Add("DataRegistro", DateTime.Now, DbType.DateTime);
 
                         conexao.Open();
 
                         await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
-                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Usuario(Id_Pessoa, Email, Senha, Status)" +
-                            "values(@Id_Pessoa, @Email, @Senha, @Status)", parametros));
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Usuario(Id_Pessoa, Email, Senha, Status, DataRegistro)" +
+                            "values(@Id_Pessoa, @Email, @Senha, @Status, @DataRegistro)", parametros));
 
                         GC.SuppressFinalize(this);
                         return true;

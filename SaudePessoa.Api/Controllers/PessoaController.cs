@@ -1,4 +1,3 @@
-using HelloPackegerJekins.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +16,11 @@ namespace SaudePessoa.Api.Controllers
     {
         protected readonly IRepositoryPessoa _IRepositoryPessoa;
         private IConfiguration _config;
-        private readonly IHelloWord helloWord;
 
-        public PessoaController(IConfiguration config, IRepositoryPessoa repositoryPessoa, IHelloWord helloWord)
+        public PessoaController(IConfiguration config, IRepositoryPessoa repositoryPessoa)
         {
             _config = config;
             _IRepositoryPessoa = repositoryPessoa;
-            this.helloWord = helloWord;
         }
 
         /// <summary>
@@ -34,7 +31,6 @@ namespace SaudePessoa.Api.Controllers
         [Route("GetAll")]
         public async Task<IEnumerable<Pessoa>> GetAll()
         {
-            string val = helloWord.ToStringWod("King of North");
             return await _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
         }
 

@@ -1,6 +1,4 @@
-﻿using HelloPackegerJekins.Interface;
-using HelloPackegerJekins.Service;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -73,7 +71,6 @@ namespace SaudePessoa.Api
 
             services.AddSingleton<IRepositoryPessoa, RepositoryPessoa>();
             services.AddSingleton<IRepositoryUsuario, RepositoryUsuario>();
-            services.AddSingleton<IHelloWord, HelloWordService>();
 
             #region JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
