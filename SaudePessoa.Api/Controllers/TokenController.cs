@@ -25,24 +25,28 @@ namespace SaudePessoa.Api.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> CreateToken([FromBody]UsuarioToken usuarioToken )
         {
-            if (string.IsNullOrEmpty(usuarioToken.strEmail) || string.IsNullOrEmpty(usuarioToken.strPassword))
-                return Unauthorized();
+            if (usuarioToken != null)
+            {
+                if (string.IsNullOrEmpty(usuarioToken.strEmail) || string.IsNullOrEmpty(usuarioToken.strPassword))
+                    return Unauthorized();
 
-            var usuario = await _serviceUsuario.Logar(usuarioToken.strEmail, usuarioToken.strPassword, _config.GetConnectionString("ExemplosDapper"));
+                var usuario = await _serviceUsuario.Logar(usuarioToken.strEmail, usuarioToken.strPassword, _config.GetConnectionString("ExemplosDapper"));
 
-            if (usuario == null)
-                return Unauthorized();
+                if (usuario == null)
+                    return Unauthorized();
 
-            var token = new TokenJWTBuilder()
-                .AddSecurityKey(ProviderJWT.JWTSecurityKey.Create("Secret_Key-Application"))
-                .AddSubject(usuario.email)
-                .AddIssuer("Securiry.Bearer")
-                .AddAudience("Securiry.Bearer")
-                .AddClaim("Bearer", usuario.email)
-                .AddExpiry(5000)
-                .Builder();
+                var token = new TokenJWTBuilder()
+                    .AddSecurityKey(ProviderJWT.JWTSecurityKey.Create("Secret_Key-Application"))
+                    .AddSubject(usuario.email)
+                    .AddIssuer("Securiry.Bearer")
+                    .AddAudience("Securiry.Bearer")
+                    .AddClaim("Bearer", usuario.email)
+                    .AddExpiry(5000)
+                    .Builder();
 
-            return Ok(token);
+                return Ok(token);
+            }
+            return BadRequest();
         }
     }
 }

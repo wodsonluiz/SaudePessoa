@@ -77,13 +77,14 @@ namespace SaudePessoa.Data.Service
                     parametros.Add("Nome_Conjugue", pessoa.Nome_Conjugue, DbType.String);
                     parametros.Add("Cpf", pessoa.Cpf, DbType.String);
                     parametros.Add("Rg", pessoa.Rg, DbType.String);
+                    parametros.Add("Dt_Registro", DateTime.Now, DbType.DateTime);
 
                     conexao.Open();
 
                     await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
-                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg)" +
-                         "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg)", parametros));
+                        .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg,Dt_Registro)" +
+                         "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg, @Dt_Registro)", parametros));
 
                     GC.SuppressFinalize(this);
 

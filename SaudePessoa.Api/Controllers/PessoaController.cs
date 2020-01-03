@@ -75,7 +75,6 @@ namespace SaudePessoa.Api.Controllers
         /// <response code="201">Returns the newly created item</response>
         /// <response code="400">If the item is null</response>   
         [HttpPost]
-        [Authorize("Bearer")]
         [Route("Insert")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]

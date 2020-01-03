@@ -63,7 +63,7 @@ namespace SaudePessoa.Test
                 //Cria��o cenario
                 IRepositoryPessoa repositoryPessoa = new RepositoryPessoa();
 
-                Pessoa pessoa = new Pessoa(0, "Pessoa_Teste_Unitario nome documento", "Pessoa_Teste_Unitario nome social", 1, DateTime.Now, "", "", "", "", "", "", "", "", "");
+                Pessoa pessoa = new Pessoa(0, "Pessoa_Teste_Unitario nome documento", "Pessoa_Teste_Unitario nome social", 1, DateTime.Now, "", "", "", "", "", "", "", "", "", DateTime.Now);
 
                 var result = await repositoryPessoa.Insert(pessoa, "Server=localhost;Port=3306;Database=desenv_teste;Uid=root;Pwd=admin123;");
 

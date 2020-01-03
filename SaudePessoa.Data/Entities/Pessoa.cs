@@ -18,15 +18,17 @@ namespace SaudePessoa.Data.Entities
         public string Nome_Conjugue { get; private set; }
         public string Cpf { get; private set; }
         public string Rg { get; private set; }
+        public DateTime Dt_Registro { get; set; }
 
         public Pessoa(int Id, string Nome_Documento, string Nome_Social, int Sexo, DateTime Data_Nascimento, string Situacao_Familiar, string Cor_Pele, string Etinia, string Religiao, 
-            string Nome_Mae, string Nome_Pai, string Nome_Conjugue, string Cpf, string Rg)
+            string Nome_Mae, string Nome_Pai, string Nome_Conjugue, string Cpf, string Rg, DateTime Dt_Registro)
         {
-            SetPessoa(Id, Nome_Documento, Nome_Social, Sexo, Data_Nascimento, Situacao_Familiar, Cor_Pele, Etinia, Religiao, Nome_Mae, Nome_Pai, Nome_Conjugue, Cpf, Rg);
+            SetPessoa(Id, Nome_Documento, Nome_Social, Sexo, Data_Nascimento, Situacao_Familiar, Cor_Pele, Etinia, Religiao, 
+                Nome_Mae, Nome_Pai, Nome_Conjugue, Cpf, Rg, Dt_Registro);
         }
 
         protected void SetPessoa(int Id, string Nome_Documento, string Nome_Social, int Sexo, DateTime Data_Nascimento, string Situacao_Familiar, string Cor_Pele, string Etinia, string Religiao, 
-            string Nome_Mae, string Nome_Pai, string Nome_Conjugue, string Cpf, string Rg)
+            string Nome_Mae, string Nome_Pai, string Nome_Conjugue, string Cpf, string Rg, DateTime Dt_Registro)
         {
             this.Id = Id;
             this.Nome_Documento = Nome_Documento;
@@ -42,6 +44,7 @@ namespace SaudePessoa.Data.Entities
             this.Nome_Conjugue = Nome_Conjugue;
             this.Cpf = Cpf;
             this.Rg = Rg;
+            this.Dt_Registro = Dt_Registro;
         }
     }
 }

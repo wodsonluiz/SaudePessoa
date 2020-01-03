@@ -27,7 +27,6 @@ namespace SaudePessoa.Data.Service
                     .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
                     .ExecuteAsync(async () => await conexao.ExecuteAsync("update Usuario set status = 2 where Email = @Email", parametros));
 
-                    GC.SuppressFinalize(this);
                     return true;
                 }
             }
@@ -71,7 +70,6 @@ namespace SaudePessoa.Data.Service
                         .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Usuario(Id_Pessoa, Email, Senha, Status, DataRegistro)" +
                             "values(@Id_Pessoa, @Email, @Senha, @Status, @DataRegistro)", parametros));
 
-                        GC.SuppressFinalize(this);
                         return true;
                     }
                 }
@@ -106,7 +104,7 @@ namespace SaudePessoa.Data.Service
                         parametros.Add("Email", email, DbType.String);
                         parametros.Add("Senha", hashValueSenha.ToString(), DbType.String);
 
-                        GC.SuppressFinalize(this);
+                        conexao.Open();
 
                         return await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(2, i => TimeSpan.FromSeconds(2))
@@ -115,7 +113,7 @@ namespace SaudePessoa.Data.Service
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
