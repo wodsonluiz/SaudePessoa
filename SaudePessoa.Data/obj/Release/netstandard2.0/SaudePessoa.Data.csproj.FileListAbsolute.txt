@@ -1,9 +1,0 @@
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\bin\Release\netstandard2.0\SaudePessoa.Data.deps.json
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\bin\Release\netstandard2.0\SaudePessoa.Data.dll
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\bin\Release\netstandard2.0\SaudePessoa.Data.pdb
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Release\netstandard2.0\SaudePessoa.Data.csprojAssemblyReference.cache
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Release\netstandard2.0\SaudePessoa.Data.csproj.CoreCompileInputs.cache
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Release\netstandard2.0\SaudePessoa.Data.AssemblyInfoInputs.cache
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Release\netstandard2.0\SaudePessoa.Data.AssemblyInfo.cs
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Release\netstandard2.0\SaudePessoa.Data.dll
-C:\Users\wodson.correia\Documents\SaudePessoa\SaudePessoa.Data\obj\Release\netstandard2.0\SaudePessoa.Data.pdb
