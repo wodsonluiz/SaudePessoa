@@ -23,62 +23,23 @@ namespace SaudePessoa.Api.Controllers
             _IRepositoryPessoa = repositoryPessoa;
         }
 
-        /// <summary>
-        /// GetAll pessoas.
-        /// </summary>
         [HttpGet]
         [Authorize("Bearer")]
-        [Route("GetAll")]
-        public async Task<IEnumerable<Pessoa>> GetAll()
+        public async Task<IEnumerable<Pessoa>> Get()
         {
             return await _IRepositoryPessoa.GetAll(_config.GetConnectionString("ExemplosDapper"));
         }
 
-        /// <summary>
-        /// GetById pessoa
-        /// </summary>
-        /// <param name="Id"></param>    
         [HttpGet]
         [Authorize("Bearer")]
-        [Route("GetById")]
-        public async Task<Pessoa> GetById(int Id)
+        [Route("{Id}")]
+        public async Task<Pessoa> Get(int Id)
         {
             return await _IRepositoryPessoa.GetById(Id, _config.GetConnectionString("ExemplosDapper"));
         }
 
-        /// <summary>
-        /// Creates a Pessoa.
-        /// </summary>
-        /// <remarks>
-        /// Sample request:
-        ///
-        ///     POST /Todo
-        ///     {
-        ///        "Id": 0,
-        ///        "Nome_Documento": "",
-        ///        "Nome_Social": "",
-        ///        "Sexo": 1,
-        ///        "Data_Nascimento": "",
-        ///        "Situacao_Familiar": "",
-        ///        "Cor_Pele": "",
-        ///        "Etinia": "",
-        ///        "Religiao": "",
-        ///        "Nome_Mae": "",
-        ///        "Nome_Pai": "",
-        ///        "Nome_Conjugue": "",
-        ///        "Cpf": "",
-        ///        "Rg": ""
-        ///     }
-        ///
-        /// </remarks>
-        /// <returns>A newly created Pessoa</returns>
-        /// <response code="201">Returns the newly created item</response>
-        /// <response code="400">If the item is null</response>   
         [HttpPost]
-        [Route("Insert")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(400)]
-        public async Task<ActionResult> Insert([FromBody]Pessoa pessoa)
+        public async Task<ActionResult> Post([FromBody]Pessoa pessoa)
         {
             var result = await _IRepositoryPessoa.Insert(pessoa, _config.GetConnectionString("ExemplosDapper"));
 
@@ -88,15 +49,9 @@ namespace SaudePessoa.Api.Controllers
                 return BadRequest();
         }
 
-        /// <summary>
-        /// Delete pessoa
-        /// </summary>
-        /// <param name="Id"></param>   
         [HttpDelete]
         [Authorize("Bearer")]
-        [Route("Delete")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
+        [Route("{Id}")]
         public async Task<ActionResult> Delete(int Id)
         {
             var result = await _IRepositoryPessoa.Delete(Id, _config.GetConnectionString("ExemplosDapper"));
@@ -107,38 +62,9 @@ namespace SaudePessoa.Api.Controllers
                 return BadRequest();
         }
 
-        /// <summary>
-        /// Update a Pessoa.
-        /// </summary>
-        /// <remarks>
-        /// Sample request:
-        ///
-        ///     POST /Todo
-        ///     {
-        ///        "Id": 0,
-        ///        "Nome_Documento": "",
-        ///        "Nome_Social": "",
-        ///        "Sexo": 1,
-        ///        "Data_Nascimento": "",
-        ///        "Situacao_Familiar": "",
-        ///        "Cor_Pele": "",
-        ///        "Etinia": "",
-        ///        "Religiao": "",
-        ///        "Nome_Mae": "",
-        ///        "Nome_Pai": "",
-        ///        "Nome_Conjugue": "",
-        ///        "Cpf": "",
-        ///        "Rg": ""
-        ///     }
-        ///
-        /// </remarks>
-        /// <returns>A newly Update Pessoa</returns>
-        /// <response code="200">Returns the newly created item</response>
-        /// <response code="400">If the item is null</response>  
         [HttpPut]
         [Authorize("Bearer")]
-        [Route("Update")]
-        public async Task<ActionResult> Update([FromBody]Pessoa pessoa)
+        public async Task<ActionResult> Put([FromBody]Pessoa pessoa)
         {
             var result = await _IRepositoryPessoa.Update(pessoa, _config.GetConnectionString("ExemplosDapper"));
 

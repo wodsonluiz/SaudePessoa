@@ -45,8 +45,6 @@ namespace SaudePessoa.Data.Service
 
                     parametros.Add("Id", id, DbType.Int32);
 
-                    GC.SuppressFinalize(this);
-
                     return await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
                         .ExecuteAsync(async () => await conexao.QueryFirstOrDefaultAsync<Pessoa>("Select * from Pessoa where Id = @Id", parametros));
@@ -86,8 +84,6 @@ namespace SaudePessoa.Data.Service
                         .ExecuteAsync(async () => await conexao.ExecuteAsync("Insert into Pessoa(Nome_Documento,Nome_Social,Sexo,Data_Nascimento,Situacao_Familiar,Cor_Pele,Etinia,Religiao,Nome_Mae,Nome_Pai,Nome_Conjugue,Cpf,Rg,Dt_Registro)" +
                          "values(@Nome_Documento, @Nome_Social, @Sexo, @Data_Nascimento, @Situacao_Familiar, @Cor_Pele, @Etinia, @Religiao, @Nome_Mae, @Nome_Pai, @Nome_Conjugue, @Cpf, @Rg, @Dt_Registro)", parametros));
 
-                    GC.SuppressFinalize(this);
-
                     return true;
                 }
             }
@@ -114,8 +110,6 @@ namespace SaudePessoa.Data.Service
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
                         .ExecuteAsync(async () => await conexao.ExecuteAsync("Update Pessoa set Nome_Documento = @Nome_Documento, Nome_Social = @Nome_Social, Data_Nascimento = @Data_Nascimento, Rg = @Rg, Cpf = @Cpf where Id = @Id", 
                         parametros));
-
-                    GC.SuppressFinalize(this);
                 };
             }
             catch (Exception)
@@ -130,8 +124,6 @@ namespace SaudePessoa.Data.Service
             {
                 using(MySqlConnection conexao = new MySqlConnection(_connection))
                 {
-                    GC.SuppressFinalize(this);
-
                     return await Policy.Handle<Exception>()
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2))
                         .ExecuteAsync(async () => await conexao.QueryAsync<Pessoa>("Select * from Pessoa"));

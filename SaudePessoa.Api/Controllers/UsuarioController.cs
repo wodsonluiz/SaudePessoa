@@ -29,11 +29,7 @@ namespace SaudePessoa.Api.Controllers
         }
 
         [HttpPost]
-        //[Authorize("Bearer")]
-        [Route("Inserir")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(500)]
-        public async Task<ActionResult> Inserir([FromBody] Usuario usuario)
+        public async Task<ActionResult> Post([FromBody] Usuario usuario)
         {
             var result = await _repositoryUsuario.Insert(usuario, _config.GetConnectionString("ExemplosDapper"));
 
@@ -43,10 +39,10 @@ namespace SaudePessoa.Api.Controllers
                 return BadRequest();
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Authorize("Bearer")]
-        [Route("Desativar")]
-        public async Task<ActionResult> Desativar([FromBody] string email)
+        [Route("/{email}")]
+        public async Task<ActionResult> Delete(string email)
         {
             var result = await _repositoryUsuario.Desativar(email, _config.GetConnectionString("ExemplosDapper"));
 
